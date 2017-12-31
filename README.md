@@ -6,6 +6,13 @@ Itsy-bitsy cache module. Smells as good as flowers.
 
 **Cachepot** has almost the same external-facing API as the [ES6 Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), but with some additional methods and configuration options.
 
+```js
+const cache = new Cachepot()
+cache.set('key', 'value')
+cache.get('key')
+cache.wrap('key', () => 'value')
+```
+
 #### `new Cachepot(options)`
 
 | Key | Description | Default |
@@ -23,3 +30,7 @@ cache.wrap('key', () => {
   return value
 })
 ```
+
+#### `cache.set(key, value, ttl)`
+
+This method has the same API as `Map.set()`, but with an additional optional `ttl` argument. This will override the configured TTL option.
